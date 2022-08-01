@@ -1,3 +1,6 @@
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
 
 double sin(), cos();
 main() {
@@ -11,8 +14,8 @@ main() {
   for (;;) {
     memset(b, 32, 2760);
     memset(z, 0, 7040);
-    for (float j = 0; 6.28 > j; j += 0.07){
-      for (float i = 0; 6.28 > i; i += 0.002) {
+    for (float j = 0; 6.28 > j; j += 0.05){
+      for (float i = 0; 6.28 > i; i += 0.001) {
         float c = sin(i);
         float d = cos(j);
         float e = sin(A);
@@ -24,8 +27,8 @@ main() {
         float m = cos(B);
         float n = sin(B);
         float t = c * h * g - f * e;
-        int x = 40 + 30 * D * (l * h * m - t * n);
-        int y = 12 + 15 * D * (l * h * n + t * m);
+        int x = (WIDTH/2) + 30 * D * (l * h * m - t * n);
+        int y = (HEIGHT/2-1) + 15 * D * (l * h * n + t * m);
         int o = x + 80 * y;
         int N = 8 * ((f * e - c * d * g) * m - c * d * e - f * g - l * d * n);
         if (HEIGHT > y && y > 0 && x > 0 && WIDTH > x && D > z[o]) {
@@ -38,7 +41,7 @@ main() {
     }
     printf("\x1b[H");
     for (int k = 0; 1761 > k; k++)
-      putchar(k % WIDTH ? b[k] : 10);
+      putchar(k % WIDTH ? b[k] : '\n');
     A += 0.04;
     B += 0.02;
   }
