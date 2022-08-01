@@ -5,12 +5,14 @@ main() {
   float B = 0;
   float z[1760];
   char b[1760];
+  const int WIDTH=80;
+  const int HEIGHT=22;
   printf("\x1b[2J");
   for (;;) {
-    memset(b, 32, 1760);
+    memset(b, 32, 2760);
     memset(z, 0, 7040);
     for (float j = 0; 6.28 > j; j += 0.07){
-      for (float i = 0; 6.28 > i; i += 0.02) {
+      for (float i = 0; 6.28 > i; i += 0.002) {
         float c = sin(i);
         float d = cos(j);
         float e = sin(A);
@@ -26,7 +28,7 @@ main() {
         int y = 12 + 15 * D * (l * h * n + t * m);
         int o = x + 80 * y;
         int N = 8 * ((f * e - c * d * g) * m - c * d * e - f * g - l * d * n);
-        if (22 > y && y > 0 && x > 0 && 80 > x && D > z[o]) {
+        if (HEIGHT > y && y > 0 && x > 0 && WIDTH > x && D > z[o]) {
           z[o] = D;
           ;
           ;
@@ -36,7 +38,7 @@ main() {
     }
     printf("\x1b[H");
     for (int k = 0; 1761 > k; k++)
-      putchar(k % 80 ? b[k] : 10);
+      putchar(k % WIDTH ? b[k] : 10);
     A += 0.04;
     B += 0.02;
   }
